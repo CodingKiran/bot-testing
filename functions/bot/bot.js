@@ -13,25 +13,28 @@ bot.start((ctx) => {
   }
 });
 
-bot.hears(Number,  (ctx) => {
-  const phoneNum = ctx.message.text;
-
-  if (ctx.message.text.length === 13) {
-    return ctx.reply(
-      "Ok",
-      Markup.inlineKeyboard([
-        Markup.button.url(
-          JSON.stringify(ctx.from.first_name),
-          `https://api.whatsapp.com/send?phone=+${JSON.stringify(
-            parseInt(ctx.message.text)
-          )}`
-        ),
-      ])
-    );
-  } else {
-    return ctx.reply(
-      "❌ Wrong Number. \n \nThe number must be 10 digits along with country code. \n\nTry again. \n\nWrite help for more information"
-    );
+bot.hears(Number, (ctx) => {
+  try {
+    if (ctx.message.text.length === 13) {
+      return ctx.reply(
+        "Ok",
+        Markup.inlineKeyboard([
+          Markup.button.url(
+            JSON.stringify(ctx.from.first_name),
+            `https://api.whatsapp.com/send?phone=+${JSON.stringify(
+              parseInt(ctx.message.text)
+            )}`
+          ),
+        ])
+      );
+    } else {
+      return ctx.reply(
+        "❌ Wrong Number. \n \nThe number must be 10 digits along with country code. \n\nTry again. \n\nWrite help for more information"
+      );
+    }
+  } catch (e) {
+    console.error("error in start action:", e);
+    return ctx.reply("Error occured");
   }
 });
 
