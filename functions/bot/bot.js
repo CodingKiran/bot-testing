@@ -20,8 +20,8 @@ bot.hears(Number, (ctx) => {
         "Ok",
        Markup.inlineKeyboard([
         Markup.button.url(
-         "Open Chat",
-          "https://google.com"
+          JSON.stringify(ctx.from.first_name),
+         `https://api.whatsapp.com/send?phone=+`
         )
        ])
       );
