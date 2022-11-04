@@ -13,6 +13,11 @@ bot.start((ctx) => {
   }
 });
 
+bot.help((ctx) =>
+  ctx.reply(
+    "Send me the phone number you want to open in whatsapp along with country code. Eg: +911234567890"
+  )
+);
 
 // AWS event handler syntax (https://docs.aws.amazon.com/lambda/latest/dg/nodejs-handler.html)
 exports.handler = async (event) => {
