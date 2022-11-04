@@ -13,7 +13,7 @@ bot.start((ctx) => {
   }
 });
 
-bot.hears(Number, async (ctx) => {
+bot.hears(Number,  (ctx) => {
   const phoneNum = ctx.message.text;
 
   if (ctx.message.text.length === 13) {
