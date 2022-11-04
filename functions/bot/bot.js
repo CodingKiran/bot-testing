@@ -16,16 +16,7 @@ bot.start((ctx) => {
 bot.hears(Number, (ctx) => {
   try {
     if (ctx.message.text.length === 13) {
-      return ctx.reply([
-        Markup.inlineKeyboard(
-          Markup.button.url(
-            JSON.stringify(ctx.from.first_name),
-            `https://api.whatsapp.com/send?phone=+${JSON.stringify(
-              parseInt(ctx.message.text)
-            )}`
-          )
-        )
-          ]);
+   return ctx.reply(ctx.message.text)
     } else {
       return ctx.reply(
         "❌ Wrong Number. \n \nThe number must be 10 digits along with country code. \n\nTry again. \n\nWrite help for more information"
