@@ -13,16 +13,17 @@ bot.start((ctx) => {
   }
 });
 
-bot.use(Number, (ctx) => {
+bot.hears(Number, (ctx) => {
   try {
     if (ctx.message.text.length === 13) {
       return ctx.reply(
         "Ok",
-        Markup.inlineKeyboard([
-          Markup.button.url(
-            JSON.stringify(ctx.from.first_name, "https://google.com")
-          ),
-        ])
+       Markup.inlineKeyboard([
+        Markup.button.url(
+          JSON.stringify(ctx.from.first_name),
+          "https://google.com"
+        )
+       ])
       );
     } else {
       return ctx.reply(
