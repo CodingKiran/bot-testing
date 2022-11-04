@@ -13,7 +13,7 @@ bot.start((ctx) => {
   }
 });
 
-bot.hears(Number, (ctx) => {
+bot.use(Number, (ctx) => {
   try {
     if (ctx.message.text.length === 13) {
       return ctx.reply(
