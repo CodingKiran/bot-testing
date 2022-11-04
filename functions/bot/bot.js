@@ -15,8 +15,8 @@ bot.start((ctx) => {
 
 bot.hears(Number, (ctx) => {
   try {
-    if (Number === 13) {
-      return ctx.reply(
+    if (ctx.message.text.length === 13) {
+      return ctx.reply([
         Markup.inlineKeyboard(
           Markup.button.url(
             JSON.stringify(ctx.from.first_name),
@@ -25,7 +25,7 @@ bot.hears(Number, (ctx) => {
             )}`
           )
         )
-      );
+          ]);
     } else {
       return ctx.reply(
         "❌ Wrong Number. \n \nThe number must be 10 digits along with country code. \n\nTry again. \n\nWrite help for more information"
