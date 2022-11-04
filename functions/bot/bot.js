@@ -1,4 +1,4 @@
-const { Telegraf } = require("telegraf");
+const { Telegraf, Markup } = require("telegraf");
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) => {
@@ -16,7 +16,14 @@ bot.start((ctx) => {
 bot.hears(Number, (ctx) => {
   try {
     if (ctx.message.text.length === 13) {
-   return ctx.reply(ctx.message.text)
+      return ctx.reply(
+        "Ok",
+        Markup.inlineKeyboard([
+          Markup.button.url(
+            JSON.stringify(ctx.from.first_name, "https://google.com")
+          ),
+        ])
+      );
     } else {
       return ctx.reply(
         "❌ Wrong Number. \n \nThe number must be 10 digits along with country code. \n\nTry again. \n\nWrite help for more information"
