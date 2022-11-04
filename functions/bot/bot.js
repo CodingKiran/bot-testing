@@ -15,7 +15,7 @@ bot.start((ctx) => {
 
 bot.hears(Number, (ctx) => {
   try {
-    if (ctx.message.text.length === 13) {
+    if (Number === 13) {
       return ctx.reply(
         Markup.inlineKeyboard(
           Markup.button.url(
