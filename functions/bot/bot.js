@@ -20,7 +20,7 @@ bot.hears(Number, (ctx) => {
         "Ok",
        Markup.inlineKeyboard([
         Markup.button.url(
-          JSON.stringify(ctx.from.first_name),
+         "Open Chat",
           "https://google.com"
         )
        ])
